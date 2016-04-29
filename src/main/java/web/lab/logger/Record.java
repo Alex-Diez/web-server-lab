@@ -1,4 +1,4 @@
-package web.lab;
+package web.lab.logger;
 
 import java.time.LocalDateTime;
 

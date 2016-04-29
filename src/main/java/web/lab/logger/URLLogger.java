@@ -1,12 +1,13 @@
-package web.lab;
+package web.lab.logger;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-import static web.lab.Action.CREATE;
-import static web.lab.Action.MODIFY;
+import static web.lab.logger.Action.CREATE;
+import static web.lab.logger.Action.DELETE;
+import static web.lab.logger.Action.MODIFY;
 
 public class URLLogger {
     private final Map<String, LocalDateTime> modificationTable = new HashMap<>();
@@ -32,5 +33,12 @@ public class URLLogger {
 
     public Optional<LocalDateTime> getLastModificationTimeFor(String url) {
         return Optional.ofNullable(modificationTable.get(url));
+    }
+
+    public LocalDateTime delete(String url) {
+        LocalDateTime deleteTime = LocalDateTime.now();
+        modificationTable.put(url, deleteTime);
+        fileSystem.store(deleteTime, DELETE, url);
+        return deleteTime;
     }
 }

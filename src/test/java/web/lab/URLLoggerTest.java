@@ -3,6 +3,9 @@ package web.lab;
 import co.unruly.matchers.OptionalMatchers;
 import org.junit.Before;
 import org.junit.Test;
+import web.lab.logger.FileSystem;
+import web.lab.logger.Record;
+import web.lab.logger.URLLogger;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -11,9 +14,9 @@ import java.util.Optional;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.lessThanOrEqualTo;
-import static web.lab.Action.CREATE;
-import static web.lab.Action.DELETE;
-import static web.lab.Action.MODIFY;
+import static web.lab.logger.Action.CREATE;
+import static web.lab.logger.Action.DELETE;
+import static web.lab.logger.Action.MODIFY;
 
 public class URLLoggerTest {
 
